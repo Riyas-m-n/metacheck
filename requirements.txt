@@ -1,0 +1,8 @@
+streamlit
+pandas
+youtube-transcript-api
+transformers
+torch
+requests
+google-generativeai
+discord.py
