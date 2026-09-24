@@ -47,7 +47,11 @@ url = st.text_input("Enter YouTube Video URL:")
 if st.button("Run Audit"):
     if url:
         try:
-            video_id = url.split("v=")[-1].split("&")[0]
+            # Handle both standard and shortened YouTube links
+            if "youtu.be" in url:
+                video_id = url.split("/")[-1].split("?")[0]
+            else:
+                video_id = url.split("v=")[-1].split("&")[0]
         except IndexError:
             st.error("Invalid YouTube URL format.")
             st.stop()

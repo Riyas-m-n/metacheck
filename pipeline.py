@@ -33,6 +33,7 @@ def get_video_title(video_id):
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             return response.json().get("title", "Unknown Title")
+        return "Unknown Title" # Prevents returning NoneType on failed lookups
     except Exception:
         return "Unknown Title"
 
